@@ -1,12 +1,11 @@
 function runningSum(nums: number[]): number[] {
     let sum = [];
-      for (let i = 0; i < nums.length; i++) {
+    return nums.map((value, index) => {
         if (sum.length) {
-            sum[i] = nums[i] + sum[i-1];
+            return sum[index] = value + sum[index-1];
         }
         else {
-            sum[i] = nums[i];
-        }
-      }
-      return sum;
+            return sum[index] = value;
+        } 
+    });
 };
