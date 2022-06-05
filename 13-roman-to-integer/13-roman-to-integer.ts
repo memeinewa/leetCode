@@ -5,13 +5,15 @@ function romanToInt(s: string): number {
     };
     let sum = 0;
     for (let i = 0; i < s.length; i++) {
-        if (s[i+1]) {
-            const sub = roman[s[i]+s[i+1]];
-            sum += sub ? sub : roman[s[i]];
+        const now = s[i];
+        const next = s[i+1];
+        if (next) {
+            const sub = roman[now+next];
+            sum += sub ? sub : roman[now];
             if (sub) i++;
         }
         else {
-            sum += roman[s[i]];
+            sum += roman[now];
         }
     }
     return sum;
